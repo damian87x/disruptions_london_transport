@@ -12,7 +12,7 @@ class Collector
   end
 
   def parse_xml
-    @parsed_hash = Nori.new(:parser => :nokogiri, :advanced_typecasting => false).parse(respond)['Root']['Disruptions']
+    @parsed_hash = Nori.new(:parser => :nokogiri, :advanced_typecasting => false).parse(respond)
   end
 
   def respond
@@ -37,7 +37,7 @@ class Collector
   private
 
   def disruptions
-    @parsed_hash['Disruption']
+    @parsed_hash['Root']['Disruptions']['Disruption']
   end
 
 
