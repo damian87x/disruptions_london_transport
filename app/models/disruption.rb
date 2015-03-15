@@ -17,11 +17,6 @@ class Disruption < ActiveRecord::Base
       load(get(uniq_key(uniq_id)))
     end
 
-    # def convert(dir)
-    #   {
-    #           lng: dir.CauseArea['DisplayPoint']['Point']['coordinatesLL']
-    #   }
-    # end
 
   end
 
