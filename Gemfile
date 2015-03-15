@@ -61,9 +61,9 @@ gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 
 
-gem 'oga'
+# gem 'oga'
 gem 'sidekiq', '2.17.8'
 gem 'whenever', '0.8.4', :require => nil
-
+gem 'pg'
 gem 'nori'
 # rails generate bootstrap:install less

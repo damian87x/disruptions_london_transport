@@ -1,30 +1,22 @@
 class Disruption < ActiveRecord::Base
 
-  include RedisHelper
+ extend RedisHelper
 
   class << self
 
     def find_all
-      Disruption.all.map do |d|
-        find_with_id(self.key_redis(d.uniq_id))
-      end
+      load(get(all_key))
     end
 
     def find_with_id(uniq_id)
-      Marshal.load(Redis.current.get(key_redis(uniq_id)))
+      load(get(uniq_key(uniq_id)))
     end
 
-    def key_redis(uniq_id)
-      "#{uniq_id}_disruptions"
+    def convert(dir)
+      {
+              lng: dir.CauseArea['DisplayPoint']['Point']['coordinatesLL']
+      }
     end
-
-  def convert(dir)
-    {
-            lat: dir.CauseArea['DisplayPoint']['Point']['coordinatesEN'],
-
-            lng: dir.CauseArea['DisplayPoint']['Point']['coordinatesLL']
-    }
-  end
 
   end
 

@@ -16,13 +16,16 @@
 
 
   <script>
-    <%= binding.pry %>
-     var lat = "<%=  @cordinats[:lat].html_safe  %>";
      var lng = "<%= @cordinats[:lng].html_safe %>";
+         lng = lng.split(',');
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
           var markers = handler.addMarkers([
-              { lat: lat.substring(2), lng: lng.substring(2)}
+//              { lat: 51.524347, lng: -.158578 },
+//              { lat: 51.555541, lng: -.193573 },
+              { lat: lng[1], lng: lng[0]}
+
+
           ]);
           handler.bounds.extendWith(markers);
           handler.fitMapToBounds();
