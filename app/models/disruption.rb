@@ -1,5 +1,7 @@
 class Disruption < ActiveRecord::Base
 
+  serialize
+
  extend RedisHelper
 
   class << self
