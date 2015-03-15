@@ -4,6 +4,13 @@ module RedisHelper
     "#{uniq_id}_disruptions"
   end
 
+  def prepare_attrs(attributes)
+    attributes.rep_key('@id', 'uniq_id')
+    attributes['CauseArea'].delete 'Streets'
+    attributes['CauseArea'] = coordinates(attributes)
+    attributes
+  end
+
   def all_key
     'disruptions'
   end

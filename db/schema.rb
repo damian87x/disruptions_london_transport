@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150313180711) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "disruptions", force: true do |t|
     t.integer  "uniq_id",         limit: 8
     t.string   "status"
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150313180711) do
     t.string   "corridor"
     t.text     "comments"
     t.text     "currentUpdate"
-    t.text     "CauseArea",       limit: 2147483647
+    t.text     "CauseArea"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

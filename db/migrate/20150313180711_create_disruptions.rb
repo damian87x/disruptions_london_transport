@@ -15,7 +15,7 @@ class CreateDisruptions < ActiveRecord::Migration
       t.string :corridor
       t.text :comments
       t.text :currentUpdate
-      t.text :CauseArea, :limit => 4294967295
+      t.text :CauseArea
       t.timestamps
     end
   end

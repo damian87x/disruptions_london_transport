@@ -36,6 +36,11 @@ class Collector
 
   private
 
+  def coordinates(attrs)
+   a =  attrs['CauseArea']['DisplayPoint']['Point']['coordinatesLL'].split(',')
+   { longitude: a[0], latitude: a[1]}
+  end
+
   def disruptions
     @parsed_hash['Root']['Disruptions']['Disruption']
   end
@@ -46,7 +51,7 @@ class Collector
 
 
   def save_one(disruption)
-    created = Disruption.where(uniq_id: disruption['@id']).update_or_create(disruption)
+    created = Disruption.where(uniq_id: disruption['@id']).update_or_create(prepare_attrs(disruption))
     save.call(uniq_key(created.uniq_id), prepare(created))
     created
   end
