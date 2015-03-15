@@ -51,7 +51,6 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.4.0)
-    gmaps4rails (2.1.2)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.11)
@@ -187,7 +186,6 @@ DEPENDENCIES
   binding_of_caller
   bower-rails
   coffee-rails (~> 4.0.0)
-  gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
   less-rails

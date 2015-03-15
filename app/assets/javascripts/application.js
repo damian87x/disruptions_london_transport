@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require underscore
-//= require gmaps/google
 //= require angular/angular
+//= require lodash/dist/lodash.compat.min
+//= require angular-google-maps/dist/angular-google-maps.min
 //= require_tree .

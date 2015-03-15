@@ -24,7 +24,6 @@ group :development do
   gem 'spring'
   gem 'pry'
 end
-gem 'gmaps4rails'
 gem 'redis'
 
 gem 'nokogiri' # for parsing XML
