@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require bootstrap-sprockets
 //= require angular/angular
 //= require lodash/dist/lodash.compat.min
 //= require angular-google-maps/dist/angular-google-maps.min

@@ -28,7 +28,7 @@ gem 'thin'
 gem 'redis'
 
 gem 'nokogiri' # for parsing XML
-gem "twitter-bootstrap-rails"
+gem 'bootstrap-sass', '~> 3.2.0'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 

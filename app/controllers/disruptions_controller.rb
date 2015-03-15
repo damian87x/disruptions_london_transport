@@ -8,6 +8,10 @@ class DisruptionsController < ApplicationController
     end
   end
 
+  def home
+
+  end
+
   private
 
   def disruption_params
