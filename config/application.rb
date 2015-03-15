@@ -8,5 +8,10 @@ module Transport
   class Application < Rails::Application
     config.assets.paths << Rails.root.join("vendor","assets","bower_components")
 
+    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += %W(#{config.root}/lib/core_ext/)
+
+    config.time_zone = 'London'
+
   end
 end

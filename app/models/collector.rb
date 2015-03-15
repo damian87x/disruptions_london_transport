@@ -1,5 +1,6 @@
 class Collector
   include RedisHelper
+
   attr_reader :parsed_hash
 
   @@uniq_ids = nil
@@ -20,10 +21,9 @@ class Collector
   end
 
   def collect
-    disruptions.each do |disruption|
-      save_to_redis_by_one(disruption)
-    end
-    save_all
+    uniq_ids_a
+    array = disruptions.map {|disruption| save_one(disruption) }
+    save_all(array)
   end
 
   def uniq_ids_a
@@ -40,16 +40,19 @@ class Collector
     @parsed_hash['Root']['Disruptions']['Disruption']
   end
 
-
-
-  def save_to_redis_by_one(disruption)
-    uniq_id = disruption['@id']
-    Disruption.create(uniq_id: uniq_id) unless self.uniq_ids_a.include? uniq_id
-    save.call(uniq_key(uniq_id), prepare(disruption))
+  def exist_uniq?(disruption)
+    !@@uniq_ids.blank? && @@uniq_ids.inclue?(disruption['@id'])
   end
 
-  def save_all
-    save.call(all_key, prepare(disruptions))
+
+  def save_one(disruption)
+    created = Disruption.update_or_create(disruption)
+    save.call(uniq_key(created.uniq_id), prepare(created))
+    created
+  end
+
+  def save_all(array)
+    save.call(all_key, prepare(array))
   end
 
 

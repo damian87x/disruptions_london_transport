@@ -4,18 +4,18 @@ class CreateDisruptions < ActiveRecord::Migration
       t.integer :uniq_id   , limit: 7
       t.string :status
       t.string :severity
-      t.string :level_of_interest
+      t.string :levelOfInterest
       t.string :category
       t.string :subCategory
-      t.datetime :start_time
-      t.datetime :end_time
-      t.datetime :remark_time
-      t.datetime :last_mod_time
+      t.datetime :startTime
+      t.datetime :endTime
+      t.datetime :remarkTime
+      t.datetime :lastModTime
       t.string :location
       t.string :corridor
       t.text :comments
-      t.text :current_update
-      t.text :cause_area
+      t.text :currentUpdate
+      t.text :CauseArea, :limit => 4294967295
       t.timestamps
     end
   end

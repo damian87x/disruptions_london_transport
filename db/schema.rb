@@ -14,7 +14,21 @@
 ActiveRecord::Schema.define(version: 20150313180711) do
 
   create_table "disruptions", force: true do |t|
-    t.integer  "uniq_id"
+    t.integer  "uniq_id",         limit: 8
+    t.string   "status"
+    t.string   "severity"
+    t.string   "levelOfInterest"
+    t.string   "category"
+    t.string   "subCategory"
+    t.datetime "startTime"
+    t.datetime "endTime"
+    t.datetime "remarkTime"
+    t.datetime "lastModTime"
+    t.string   "location"
+    t.string   "corridor"
+    t.text     "comments"
+    t.text     "currentUpdate"
+    t.text     "CauseArea",       limit: 2147483647
     t.datetime "created_at"
     t.datetime "updated_at"
   end

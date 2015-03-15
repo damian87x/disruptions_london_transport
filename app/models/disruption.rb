@@ -1,8 +1,11 @@
 class Disruption < ActiveRecord::Base
 
-  serialize
+  serialize :CauseArea, Hash
 
- extend RedisHelper
+  extend RedisHelper
+  extend Extensions::ChangeNewParam
+
+  validates_uniqueness_of :uniq_id
 
   class << self
 
@@ -14,11 +17,11 @@ class Disruption < ActiveRecord::Base
       load(get(uniq_key(uniq_id)))
     end
 
-    def convert(dir)
-      {
-              lng: dir.CauseArea['DisplayPoint']['Point']['coordinatesLL']
-      }
-    end
+    # def convert(dir)
+    #   {
+    #           lng: dir.CauseArea['DisplayPoint']['Point']['coordinatesLL']
+    #   }
+    # end
 
   end
 

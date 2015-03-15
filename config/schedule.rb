@@ -1,3 +1,3 @@
 every 1.hour do
-  runner "Collector.new"
+  runner "CacheHandler.perform_async"
 end
