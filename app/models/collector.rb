@@ -46,7 +46,7 @@ class Collector
 
 
   def save_one(disruption)
-    created = Disruption.update_or_create(disruption)
+    created = Disruption.where(uniq_id: disruption['@id']).update_or_create(disruption)
     save.call(uniq_key(created.uniq_id), prepare(created))
     created
   end

@@ -6,6 +6,7 @@ module Extensions::ChangeNewParam
     begin
       assign_or_new(attributes)
     rescue Exception => e
+      binding.pry
       puts "caught exception #{e}! Trace: #{e.backtrace}"
     end
   end
@@ -15,7 +16,7 @@ module Extensions::ChangeNewParam
     attributes['CauseArea'].delete 'Streets'
     obj = first || new
     obj.assign_attributes(attributes)
-    obj.save! && obj
+    obj.save && obj
   end
 
 
